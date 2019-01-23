@@ -68,6 +68,10 @@ TEMPLATES = [
     },
 ]
 
+TEMPLATE_DIRS = (
+os.path.join('exam', 'templates'),
+)
+
 WSGI_APPLICATION = 'entrance_exam.wsgi.application'
 
 
