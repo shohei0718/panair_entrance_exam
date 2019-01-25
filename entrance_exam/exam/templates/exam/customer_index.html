@@ -1,4 +1,28 @@
 <body>
-    <h2>顧客一覧</h2>
+  <h2>顧客一覧</h2>
+    <table>
+      <tr>
+        <td>ID</td>
+        <td>名前</td>
+        <td>性別</td>
+        <td>年齢</td>
+        <td></td>
+      </tr>
+    </table>
+    {% for customer in customer_list %}
+    <table>
+      <tr>
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.gender }}</td>
+        <td>{{ customer.age }}</td>
+        <td><a href="{% url 'customer_edit' customer.id %}">編集</a></td>
+      </tr>
+    </table>
+    {% endfor %}
+    <br>
+    <a href="{% url 'customer_form' %}">新規追加</a>
+    <hr>
+    <a href="{% url 'index' %}">メニューに戻る</a>
 </body>
 
