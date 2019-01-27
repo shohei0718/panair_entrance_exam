@@ -1,3 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>メニュー</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lesson_index.css' %}">
+  </head>
+
 <body>
-    <h2>レッスン受講記録</h2>
+    <h2>レッスン受講記録一覧</h2>
+    <table>
+      <tr>
+        <td>ID</td>
+        <td>受講者</td>
+        <td>ジャンル</td>
+        <td>受講日</td>
+        <td>受講時間</td>
+        <td>受講金額</td>
+      </tr>
+    </table>
+    {% for lesson in lesson_list %}
+    <table>
+      <tr>
+        <td>{{ lesson.customer.id }}</td>
+        <td>{{ lesson.customer.name }}</td>
+        <td>{{ lesson.genre }}</td>
+        <td>{{ lesson.lesson_day }}</td>
+        <td>{{ lesson.lesson_time }}</td>
+        <td>{{ lesson.price }}</td>
+        <td><a href="{% url 'lesson_edit' lesson.id %}">編集</a></td>
+      </tr>
+    </table>
+    {% endfor %}
+    <br>
+    <a href="{% url 'lesson_form' %}">新規追加</a>
+    <hr>
+    <a href="{% url 'index' %}">メニューに戻る</a>
+
 </body>
