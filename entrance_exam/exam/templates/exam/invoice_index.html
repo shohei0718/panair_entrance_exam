@@ -1,3 +1,55 @@
-<body>
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>メニュー</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/invoice_index.css' %}">
+  </head>
+
+  <body>
     <h2>月別請求一覧</h2>
-</body>
+    <form>
+      {{ form }}
+      <button type="submit" value="検索">検索</button>
+    </form>
+    <hr>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>顧客ID</td>
+          <td>顧客名</td>
+          <td class="genre">受講ジャンル：受講回数(回)</td>
+          <td>受講レッスン数</td>
+          <td class="genre">受講ジャンル：受講時間(h)</td>
+          <td>請求金額</td>
+        </tr>
+      </thead>
+        <tbody>
+        {% for invoice in invoice_list %}
+          <tr>
+            <td>{{ invoice.id }}</td>
+            <td>{{ invoice.name }}</td>
+            <td>
+            {% for key, value in invoice.genre.items %}
+              {{ key }}:{{ value}}回
+            {% endfor %}
+            </td>
+            <td>{{ invoice.lesson }}レッスン</td>
+            <td>
+            {% for key, value in invoice.lesson_time.items %}
+              {{ key }}:{{ value}}h
+            {% endfor %}
+            </td>
+            {% if invoice.price  == null %}
+              <td>0円</td>
+            {% else %}
+              <td>{{ invoice.price }}円</td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'index' %}">メニューに戻る</a>
+  </body>
+</html>

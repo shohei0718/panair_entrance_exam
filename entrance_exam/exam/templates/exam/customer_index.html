@@ -9,22 +9,24 @@
 
 <body>
   <h2>顧客一覧</h2>
-    <table>
-      <tr>
-        <th>ID</th><th>名前</th><th>性別</th><th>年齢</th>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th><th>名前</th><th>性別</th><th>年齢</th>
       </tr>
+      </thead>
+      <tbody>
+        {% for customer in customer_list %}
+        <tr>
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.gender }}</td>
+          <td>{{ customer.age }}</td>
+          <td><a href="{% url 'customer_edit' customer.pk %}">編集</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
-    {% for customer in customer_list %}
-    <table>
-      <tr>
-        <td>{{ customer.id }}</td>
-        <td>{{ customer.name }}</td>
-        <td>{{ customer.gender }}</td>
-        <td>{{ customer.age }}</td>
-        <td><a href="{% url 'customer_edit' customer.id %}">編集</a></td>
-      </tr>
-    </table>
-    {% endfor %}
     <br>
     <a href="{% url 'customer_form' %}">新規追加</a>
     <hr>

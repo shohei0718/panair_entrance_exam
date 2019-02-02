@@ -1,3 +1,77 @@
-<body>
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>メニュー</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/report_index.css' %}">
+  </head>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>メニュー</title>
+  </head>
+
+  <body>
     <h2>レポート</h2>
-</body>
+    <form>
+      {{ form }}
+      <button type="submit" value="検索">検索</button>
+    </form>
+    <hr>
+    <table class="table">
+      <thead>
+        <tr>ジャンルと性別別
+        <hr>
+          <td>ジャンル</td>
+          <td>性別</td>
+          <td>レッスン数</td>
+          <td>受講者数</td>
+          <td>売上</td>
+        </tr>
+      </thead>
+        <tbody>
+        {% for lesson in lessons %}
+          <tr>
+            <td>{{ lesson.genre }}</td>
+            <td>{{ lesson.gender }}</td>
+            <td>{{ lesson.lesson }}</td>
+            <td>
+            {% if lesson.customer == null %}
+            0
+            {% else %}
+            {{ lesson.customer }}
+            {% endif %}
+            </td>
+            <td>{{ lesson.price }}円</td>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <hr>
+    <table class="table">
+      <thead>
+        <tr>ジャンルと年齢層別
+        <hr>
+          <td>ジャンル</td>
+          <td>性別</td>
+          <td>年齢層別</td>
+          <td>レッスン数</td>
+          <td>受講者数</td>
+          <td>売上</td>
+        </tr>
+      </thead>
+        <tbody>
+        {% for invoice in invoice_list %}
+          <tr>
+            <td>{{ invoice.id }}</td>
+            <td>{{ invoice.name }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'index' %}">メニューに戻る</a>
+  </body>
+</html>
