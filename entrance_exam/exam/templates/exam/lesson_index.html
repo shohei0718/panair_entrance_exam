@@ -22,7 +22,6 @@
             <td>ジャンル</td>
             <td>受講日</td>
             <td>受講時間(h)</td>
-            <td>受講金額(円)</td>
           </tr>
       </thead>
       <tbody>
@@ -30,10 +29,9 @@
         <tr>
             <td>{{ lesson.id }}</td>
             <td>{{ lesson.customer.name }}</td>
-            <td>{{ lesson.genre }}</td>
-            <td>{{ lesson.lesson_day }}</td>
-            <td>{{ lesson.lesson_time }}h</td>
-            <td>{{ lesson.price }}円</td>
+            <td>{{ lesson.lesson }}</td>
+            <td>{{ lesson.lesson_date }}</td>
+            <td>{{ lesson.lesson_hour }}h</td>
             <td><a href="{% url 'lesson_edit' lesson.pk %}">編集</a></td>
         </tr>
         {% endfor %}
