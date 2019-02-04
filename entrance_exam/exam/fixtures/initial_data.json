@@ -1,0 +1,90 @@
+[
+  {
+    "model": "exam.Lesson",
+    "pk": 1,
+    "fields": {
+      "name": "英語",
+      "flat_price": 5000
+    }
+  }, {
+    "model": "exam.Lesson",
+    "pk": 2,
+    "fields": {
+      "name": "ファイナンス",
+      "flat_price": 0
+    }
+  }, {
+    "model": "exam.Lesson",
+    "pk": 3,
+    "fields": {
+      "name": "プログラミング",
+      "flat_price": 20000
+    }
+  },
+
+  {
+    "model": "exam.LessonMeasuredPrice",
+    "pk": 1,
+    "fields": {
+      "lesson_id": 1,
+      "price": 3500,
+      "threshold_hours": 0
+    }
+  }, {
+    "model": "exam.LessonMeasuredPrice",
+    "pk": 2,
+    "fields": {
+      "lesson_id": 2,
+      "price": 3300,
+      "threshold_hours": 0
+    }
+  }, {
+    "model": "exam.LessonMeasuredPrice",
+    "pk": 3,
+    "fields": {
+      "lesson_id": 2,
+      "price": 2800,
+      "threshold_hours": 20
+    }
+  }, {
+    "model": "exam.LessonMeasuredPrice",
+    "pk": 4,
+    "fields": {
+      "lesson_id": 2,
+      "price": 2500,
+      "threshold_hours": 50
+    }
+  }, {
+    "model": "exam.LessonMeasuredPrice",
+    "pk": 5,
+    "fields": {
+      "lesson_id": 3,
+      "price": 3500,
+      "threshold_hours": 5
+    }
+  }, {
+    "model": "exam.LessonMeasuredPrice",
+    "pk": 6,
+    "fields": {
+      "lesson_id": 3,
+      "price": 3000,
+      "threshold_hours": 20
+    }
+  }, {
+    "model": "exam.LessonMeasuredPrice",
+    "pk": 7,
+    "fields": {
+      "lesson_id": 3,
+      "price": 2800,
+      "threshold_hours": 35
+    }
+  }, {
+    "model": "exam.LessonMeasuredPrice",
+    "pk": 8,
+    "fields": {
+      "lesson_id": 3,
+      "price": 2500,
+      "threshold_hours": 50
+    }
+  }
+]
