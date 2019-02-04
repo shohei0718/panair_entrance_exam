@@ -63,7 +63,6 @@ def lesson_form(request):
   if request.method == "POST" and form.is_valid():
     lesson = form.save(commit=False)
 
-
     lesson.save()
     return HttpResponseRedirect(reverse('lesson_index'))
 
@@ -212,7 +211,7 @@ def report_index(request):
           customer = len(customer_set)
           lesson['customer'] = customer
 
-          lesson_time = en_lesson.lesson_time
+          lesson_time = en_lesson.lesson_hour
           lesson_time_sum += lesson_time
 
           english_invoice = 5000 * customer + lesson_time_sum * 3500
