@@ -240,7 +240,7 @@ def report_index(request):
           lesson_time_sum += lesson_hour
 
 
-      english_invoice = 5000 * customer + lesson_time_sum * 3500
+          english_invoice = 5000 * customer + lesson_time_sum * 3500
       lesson['price']= english_invoice
       lesson['lesson'] = les_sum['lesson']
 
