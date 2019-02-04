@@ -27,7 +27,7 @@ class Customer(models.Model):
 
 
 class Lesson(models.Model):
-  name = models.CharField('ジャンル', max_length=255)
+  name = models.CharField('ジャンル', null=True, max_length=255)
   flat_price = models.PositiveIntegerField('基本料金', null=False, default=0)
 
   def __str__(self):
